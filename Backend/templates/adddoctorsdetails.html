@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card mb-2" style="width:800px;margin-left:220px;margin-top:50px">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Add Doctor</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{% url 'doctordbsave' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Department</label>
+                <select class="form-control" name="department">
+                    <option>Select Department</option>
+                    {% for d in dep_data %}
+                    <option>{{d.Name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Doctor Name</label>
+                <input type="text" class="form-control" id="basic-default-fullname" placeholder="Doctor Name"
+                       name="doctor">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-fullname">Qualification</label>
+                <input type="text" class="form-control" id="basic-default-fullname" placeholder="Qualification"
+                       name="qualification">
+            </div>
+
+            <div class="mb-3">
+                <div class="form-label">
+                    <label class="form-label">Upload Doctor Image:</label>
+                    <input type="file" class="form-label" placeholder="Upload Doctor Image" name="image">
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

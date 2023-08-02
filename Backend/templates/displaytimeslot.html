@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" style="margin-top:20px;width:1000px;margin-left:100px">
+    <h5 class="card-header">Departments Details</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+            <tr style="text-align:center">
+                <th>Available Day</th>
+                <th>Available Time</th>
+                <th>Available Doctor</th>
+            </tr>
+            </thead>
+            {% for d in data %}
+            <tbody class="table-border-bottom-0">
+            <tr>
+                <td>{{d.Day}}</td>
+                <td>{{d.Time}}</td>
+                <td>{{d.Doctor}}</td>
+                <td>
+                    <div>
+                        <form action="{% url 'deltimeslot' dataid=d.id %}">
+                            <button type="submit" class="btn btn-sm btn-primary" style="width:100px">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

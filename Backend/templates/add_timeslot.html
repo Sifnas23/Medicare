@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card mb-2" style="width:800px;margin-left:220px;margin-top:50px">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Add Time Slot</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{% url 'timeslotdbsave' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" id="basic-default-fullname" placeholder="Available Day"
+                       name="day">
+            </div>
+            <div class="mb-3">
+                <input type="text-area" class="form-control" id="basic-default-company" name="time" Placeholder="Available Time">
+            </div> <div class="mb-3">
+                <input type="text-area" class="form-control" id="basic-default-company" name="time" Placeholder="Available Doctor">
+            </div>
+            <div class="mb-3">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

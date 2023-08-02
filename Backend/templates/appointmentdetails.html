@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" style="margin-top:20px;width:1000px;margin-left:100px">
+    <h5 class="card-header">Doctors Details</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Place</th>
+            </tr>
+            </thead>
+            {% for d in data %}
+            <tbody class="table-border-bottom-0">
+            <tr>
+                <td>{{d.Name}}</td>
+                <td>{{d.Department}}</td>
+                <td>{{d.Doctor}}</td>
+                <td>{{d.Date}}</td>
+                <td>{{d.Time}}</td>
+                <td>{{d.PhoneNumber}}</td>
+                <td>{{d.Email}}</td>
+                <td>{{d.Place}}</td>
+                <td>
+                    <div>
+
+
+                            <button type="submit" class="btn btn-sm btn-primary" style="width:100px">Approve</button>
+
+                        <br>
+
+                            <button type="submit" class="btn btn-sm btn-primary" style="width:100px">Rejected</button>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}
